@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contract_number: MyString
+  contract_amount: 9.99
+  estimated_Annual_fee: 9.99
+  attachment: MyString
+
+two:
+  contract_number: MyString
+  contract_amount: 9.99
+  estimated_Annual_fee: 9.99
+  attachment: MyString

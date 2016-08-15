@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  title: MyString
+  description: MyText
+  start_date: 2016-08-15
+  close_date: 2016-08-15
+  job_code: MyString
+  contract_number: MyString
+  collection_risk: MyString
+  state: MyString
+  estimated_commision: 9.99
+  estimated_outsourcing: 9.99
+  budgeted_service_fee: 9.99
+  budgeted_expense: 9.99
+  billing_responsibility_user_id: 1
+
+two:
+  owner_id: 1
+  title: MyString
+  description: MyText
+  start_date: 2016-08-15
+  close_date: 2016-08-15
+  job_code: MyString
+  contract_number: MyString
+  collection_risk: MyString
+  state: MyString
+  estimated_commision: 9.99
+  estimated_outsourcing: 9.99
+  budgeted_service_fee: 9.99
+  budgeted_expense: 9.99
+  billing_responsibility_user_id: 1
