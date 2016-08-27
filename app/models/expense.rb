@@ -1,5 +1,5 @@
 class Expense < ActiveRecord::Base
-	has_one :expense_category
+	belongs_to :expense_category
 	belongs_to :project
 	belongs_to :user
 	belongs_to :period

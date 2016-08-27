@@ -6,12 +6,25 @@ belongs_to :project
 # permit_params :list, :of, :attributes, :on, :model
 #
 # or
-#
-permit_params do
-  permitted = [:permitted, :attributes]
-#  permitted << :other if params[:action] == 'create' && current_user.admin?
-  permitted
-end
+
+controller do
+    def permitted_params
+      params.permit!
+    end
+  end
+
+	form do |f|
+		f. semantic_errors
+
+		f.inputs do
+			f.input :user_id, as: :select, collection: User.all.map{|u| [u.name, u.id]}, selected: current_user.id
+			f.input :project
+			f.input :amount
+			f.input :expense_category
+			f.input :charge_date, as: :datepicker
+			f.actions
+		end
+	end
 
 
 end
