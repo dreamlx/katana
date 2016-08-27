@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815030836) do
+ActiveRecord::Schema.define(version: 20160827121648) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160815030836) do
     t.string   "attachment"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "project_id"
   end
 
   create_table "expense_categories", force: :cascade do |t|
@@ -102,6 +103,12 @@ ActiveRecord::Schema.define(version: 20160815030836) do
     t.integer  "user_id"
   end
 
+  create_table "job_codes", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "periods", force: :cascade do |t|
     t.string   "title"
     t.date     "start_date"
@@ -117,7 +124,6 @@ ActiveRecord::Schema.define(version: 20160815030836) do
     t.date     "start_date"
     t.date     "close_date"
     t.string   "job_code"
-    t.string   "contract_number"
     t.string   "collection_risk"
     t.string   "state"
     t.decimal  "estimated_commision"
