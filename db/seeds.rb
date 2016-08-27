@@ -5,4 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+if User.where(email: 'admin@example.com').size == 0
+	User.create!(name: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+end
+JobCode.create!( title: '00:self_study')
+JobCode.create!( title: '05:company_admin')
+JobCode.create!( title: '10:client_service')
+JobCode.create!( title: '15:others')
