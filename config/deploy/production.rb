@@ -8,7 +8,7 @@ role :app, %w{deploy@bizapper.com}
 role :web, %w{deploy@bizapper.com}
 role :db,  %w{deploy@bizapper.com}
 
-
+set :rvm_ruby_version, '2.3.1@katana'      # Defaults to: 'default'
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the

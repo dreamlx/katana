@@ -29,9 +29,13 @@ gem 'devise-i18n'
 gem 'mysql2'
 gem "rolify"
 gem 'carrierwave'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+gem 'devise-bootstrap-views'
 gem 'state_machines-activerecord'
 gem 'cancancan', '~> 1.10'
-
+gem "haml-rails", "~> 0.9"
 gem 'capistrano-rails', group: :development
 gem 'capistrano-rvm', group: :development
 gem 'capistrano-passenger', '0.0.2', group: :development
