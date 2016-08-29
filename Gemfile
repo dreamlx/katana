@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'devise-i18n'
+gem 'mysql2'
 gem 'carrierwave'
 gem 'state_machines-activerecord'
 gem 'cancancan', '~> 1.10'
