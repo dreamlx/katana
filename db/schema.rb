@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827124328) do
+ActiveRecord::Schema.define(version: 20160829023153) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160827124328) do
     t.string   "state"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "charge_rate"
   end
 
   create_table "charge_hours", force: :cascade do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160827124328) do
     t.string   "state"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "booking_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -101,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160827124328) do
     t.integer  "period_id"
     t.integer  "project_id"
     t.integer  "user_id"
+    t.integer  "booking_id"
   end
 
   create_table "job_codes", force: :cascade do |t|
@@ -151,6 +154,7 @@ ActiveRecord::Schema.define(version: 20160827124328) do
     t.datetime "updated_at",                          null: false
     t.string   "state"
     t.string   "name"
+    t.integer  "charge_rate"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

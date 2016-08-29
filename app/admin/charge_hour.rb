@@ -16,12 +16,24 @@ belongs_to :project
 	form do |f|
 		f. semantic_errors
 		f.inputs do
-			f.input :user_id, as: :select, collection: User.all.map{|u| [u.name, u.id]}, selected: current_user.id
-			f.input :project
+			f.input :booking_id, as: :select, collection: Project.find(project).bookings.map{|b| [b.member.name, b.id]}, selected: current_user.id
+			f.input :project, as: :select, collection: Project.all, :selected => project.id
 			f.input :hours
-			f.input :charge_rate
 			f.input :charge_date, as: :datepicker
 			f.actions
 		end
+	end
+
+		index do
+	    selectable_column
+	    id_column
+	    column :project
+	    column :booking
+	    column :charge_rate
+	    column :charge_fee do |hour|
+	    	hour.charge_rate * hour.hours
+	    end
+	    column :state
+	    actions
 	end
 end

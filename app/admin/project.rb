@@ -9,8 +9,9 @@ ActiveAdmin.register Project do
 #
 	sidebar "Project Details", only: [:show, :edit] do
     ul do
+    	li link_to 'Booking team', 		admin_project_bookings_path(project)
       li link_to "Charge Hours",    admin_project_charge_hours_path(project)
-      li link_to "Expense", admin_project_expenses_path(project)
+      li link_to "Expense", 				admin_project_expenses_path(project)
     end
   end
 

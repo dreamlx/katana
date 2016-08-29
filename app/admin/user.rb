@@ -1,12 +1,13 @@
 ActiveAdmin.register User do
 
-  permit_params :name, :email, :password, :password_confirmation
+  permit_params :name, :email, :charge_rate, :password, :password_confirmation
 
   index do
     selectable_column
     id_column
     column :email
     column :name
+    column :charge_rate
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
@@ -23,6 +24,7 @@ ActiveAdmin.register User do
     f.inputs "Admin Details" do
       f.input :email
       f.input :name
+      f.input :charge_rate
       f.input :password
       f.input :password_confirmation
     end
