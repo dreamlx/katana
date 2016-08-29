@@ -1,4 +1,9 @@
-<div class="container">
+
+<div class="site-wrapper">
+<div class="site-wrapper-inner">
+<div class="cover-container">
+
+<div class="cta-container" style='margin-left:20%; margin-right: 20%'>
 <div class="panel panel-default devise-bs">
   <div class="panel-heading">
     <h4><%= t('.sign_in', :default => "Sign in") %></h4>
@@ -14,12 +19,12 @@
 <%- end -%>
     <%= form_for(:accounts_user, url: new_accounts_user_session_path(@accounts_user), html: { role: "form", class: 'form-signin' }) do |f| %>
       <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <%= f.label :email, class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" , style: 'width: 100%'%>
       </div>
       <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        <%= f.label :password, class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" , style: 'width: 100%'%>
       </div>
       <% if devise_mapping.rememberable? %>
         <!--div class="checkbox">
@@ -28,10 +33,14 @@
           <% end %>
         </div-->
       <% end %>
-      <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-lg btn-primary " %>
+      <%= f.submit  t('.sign_in', :default => "Sign in") %>
     <% end %>
   </div>
 </div>
 
-<%= link_to '< back to Home', root_path %>
+<%= link_to 'back to Home', root_path, class: 'btn btn-primary'%>
+</div>
+
+</div>
+</div>
 </div>
