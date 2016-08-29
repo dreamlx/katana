@@ -8,7 +8,7 @@ ActiveAdmin.register Booking do
 #
 # or
 #
-controller do
+	controller do
     def permitted_params
       params.permit!
     end
@@ -20,7 +20,7 @@ controller do
 		f.inputs do
 			f.input :member_id, as: :select, collection: User.all.map{|u| [u.name, u.id]}
 			f.input :project
-			f.input :charge_rate, hint: '一人天价格,每个项目可以不一样'
+			f.input :charge_rate
 			f.input :description
 			f.input :state, as: :select, collection: [['actived','actived'],['blocked','blocked']]
 			f.actions
@@ -32,7 +32,6 @@ controller do
 	    id_column
 	    column :project
 	    column :member
-	    column :charge_rate
 	    column :state
 	    actions
 	end

@@ -27,6 +27,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'devise-i18n'
 gem 'mysql2'
+gem "rolify"
 gem 'carrierwave'
 gem 'state_machines-activerecord'
 gem 'cancancan', '~> 1.10'

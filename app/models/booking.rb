@@ -2,8 +2,8 @@ class Booking < ActiveRecord::Base
 
 	belongs_to :project
 	belongs_to :member, class_name: 'User'
-  has_many :expenses
-  has_many :charge_hours
+  # has_many :expenses
+  # has_many :charge_hours
   before_create :setup_charge_rate
   validates :member_id, presence: true, uniqueness: {scope: :project, message: 'should booking once per project'}
   validates :project, presence: true

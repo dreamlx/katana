@@ -3,16 +3,24 @@ class Ability
 
   def initialize(user)
     can :read, ActiveAdmin::Page, :name => "Dashboard"
-    can :manage, Booking
+   
     can :manage, Client
-    can :manage, ChargeHour
     can :manage, Contract
-    can :manage, Expense
     can :manage, ExpenseCategory
     can :manage, JobCode
     can :manage, Period
-    can :manage, Project
     can :manage, User
+
+    can :read, Project
+    can :manage, Project, :owner_id => user.id
+
+    can [:read, :new, :create], ChargeHour
+    can :manage, ChargeHour, :user_id => user.id
+    can :read, Expense
+    can :manage, Expense, :user_id => user.id
+
+    can :manage, Booking
+
 
     # Define abilities for the passed in user here. For example:
     #

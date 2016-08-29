@@ -12,6 +12,10 @@ menu parent: 'Config'
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+	controller do
+    def permitted_params
+      params.permit!
+    end
+  end
 
 end
