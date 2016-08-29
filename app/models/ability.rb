@@ -2,6 +2,18 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    can :read, ActiveAdmin::Page, :name => "Dashboard"
+    can :manage, Booking
+    can :manage, Client
+    can :manage, ChargeHour
+    can :manage, Contract
+    can :manage, Expense
+    can :manage, ExpenseCategory
+    can :manage, JobCode
+    can :manage, Period
+    can :manage, Project
+    can :manage, User
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
