@@ -46,6 +46,24 @@ belongs_to :project
 	    actions
 	end
 
+	member_action :confirm, method: :get do
+	  resource.state == '审核通过'
+	  resource.save
+	 #  if resource.confirm!
+		#   #resource.send_message(current_user, "等待审核", "审核通过")
+		# end
+	  redirect_to resource_path, notice: "Confirm!"
+	end
+
+	member_action :unconfirm, method: :get do
+		resource.state == '审核拒绝'
+	  resource.save
+	 #  if resource.unconfirm!
+		#   #resource.send_message(current_user, "等待审核", "审核拒绝")
+		# end
+	  redirect_to resource_path, notice: "Not allow!"
+	end
+
 	action_item only: :show do
 	  link_to t(:confirm), confirm_admin_project_expense_path(project, expense) if current_user == expense.project.owner
 	end
@@ -55,7 +73,8 @@ belongs_to :project
 	end
 
 	after_update do |e|
-		e.redo!
+		e.state == '等待审核'
+		e.save
 		#resource.send_message(current_user, "审核拒绝", "等待审核")
 	end
 end

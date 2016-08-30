@@ -15,14 +15,14 @@ class Project < ActiveRecord::Base
 	
 	accepts_nested_attributes_for :contract, reject_if: :all_blank, allow_destroy: true
 
-  state_machine :state, :initial => :'项目开始' do
-    event :closed! do
-      transition [nil, :'项目开始'] => :'项目关闭'
-    end
+  # state_machine :state, :initial => :'项目开始' do
+  #   event :closed! do
+  #     transition :'项目开始' => :'项目关闭'
+  #   end
 
-    event :redo! do
-    	transition [nil, :'项目关闭'] => :'项目开始'
-  	end
-  end
+  #   event :redo! do
+  #   	transition :'项目关闭' => :'项目开始'
+  # 	end
+  # end
 	
 end
