@@ -40,16 +40,20 @@ belongs_to :project
 	end
 
 	member_action :confirm, method: :get do
-	  if resource.confirm!
-		  #resource.send_message(current_user, "等待审核", "审核通过")
-		end
+	  resource.state == '审核通过'
+	  resource.save
+	 #  if resource.confirm!
+		#   #resource.send_message(current_user, "等待审核", "审核通过")
+		# end
 	  redirect_to resource_path, notice: "Confirm!"
 	end
 
 	member_action :unconfirm, method: :get do
-	  if resource.unconfirm!
-		  #resource.send_message(current_user, "等待审核", "审核拒绝")
-		end
+		resource.state == '审核拒绝'
+	  resource.save
+	 #  if resource.unconfirm!
+		#   #resource.send_message(current_user, "等待审核", "审核拒绝")
+		# end
 	  redirect_to resource_path, notice: "Not allow!"
 	end
 
@@ -62,7 +66,8 @@ belongs_to :project
 	end
 
 	after_update do |h|
-		h.redo!
+		h.state == '等待审核'
+		h.save
 		#resource.send_message(current_user, "审核拒绝", "等待审核")
 	end
 end
