@@ -8,15 +8,15 @@ class Booking < ActiveRecord::Base
   validates :member_id, presence: true, uniqueness: {scope: :project, message: 'should booking once per project'}
   validates :project, presence: true
   validates :charge_rate, presence: true
-	state_machine :initial => :actived do
-    event :block! do
-      transition [nil, :actived ] => :blocked
-    end
+	# state_machine :initial => :actived do
+ #    event :block! do
+ #      transition [nil, :actived ] => :blocked
+ #    end
 
-    event :active! do
-      transition [nil, :blocked ] => :actived
-    end
-  end
+ #    event :active! do
+ #      transition [nil, :blocked ] => :actived
+ #    end
+ #  end
 
   def title
     self.member.name
