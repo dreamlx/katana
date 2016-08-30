@@ -38,4 +38,31 @@ belongs_to :project
 	    column :state
 	    actions
 	end
+
+	member_action :confirm, method: :get do
+	  if resource.confirm!
+		  #resource.send_message(current_user, "等待审核", "审核通过")
+		end
+	  redirect_to resource_path, notice: "Confirm!"
+	end
+
+	member_action :unconfirm, method: :get do
+	  if resource.unconfirm!
+		  #resource.send_message(current_user, "等待审核", "审核拒绝")
+		end
+	  redirect_to resource_path, notice: "Not allow!"
+	end
+
+	action_item only: :show do
+	  link_to t(:confirm), confirm_admin_project_charge_hour_path(project, charge_hour) if current_user == charge_hour.project.owner
+	end
+
+	action_item only: :show do
+	  link_to t(:unconfirm), unconfirm_admin_project_charge_hour_path(project,charge_hour) if current_user == charge_hour.project.owner
+	end
+
+	after_update do |h|
+		h.redo!
+		#resource.send_message(current_user, "审核拒绝", "等待审核")
+	end
 end

@@ -45,4 +45,17 @@ belongs_to :project
 	    column :updated_at
 	    actions
 	end
+
+	action_item only: :show do
+	  link_to t(:confirm), confirm_admin_project_expense_path(project, expense) if current_user == expense.project.owner
+	end
+
+	action_item only: :show do
+	  link_to t(:unconfirm), unconfirm_admin_project_expense_path(project,expense) if current_user == expense.project.owner
+	end
+
+	after_update do |e|
+		e.redo!
+		#resource.send_message(current_user, "审核拒绝", "等待审核")
+	end
 end

@@ -102,6 +102,10 @@ menu priority: 2 # so it's on the very left
 		f.inputs 'Billing' do
 			f.input :billing_responsibility_user
 		end
+
+		f.inputs 'State' do
+			f.input :state, as: :select, collection: [['项目开始','项目开始'],['项目关闭','项目关闭']]
+		end
 		f.actions
 	end
 

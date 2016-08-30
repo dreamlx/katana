@@ -11,7 +11,20 @@ class ChargeHour < ActiveRecord::Base
 	validates :project_id, presence: true
 	validates :hours, presence: true
 	
+	state_machine :state, :initial => :'等待审核' do
+    event :confirm! do
+      transition [nil, :'等待审核'] => :'审核通过'
+    end
 
+    event :unconfirm! do
+      transition [nil, :'等待审核'] => :'审核拒绝'
+    end
+
+    event :redo! do
+    	transition [nil, :'审核拒绝'] => :'等待审核'
+  	end
+  end
+	
 	private
 	def set_charge_rate
 		self.charge_rate = self.user.charge_rate
