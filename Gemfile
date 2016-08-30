@@ -1,4 +1,5 @@
 source 'https://ruby.taobao.org'
+ruby "2.3.1"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'devise-i18n'
-gem 'mysql2'
 gem "rolify"
 gem 'carrierwave'
 gem "therubyracer"
@@ -59,5 +59,11 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+ gem 'rails_12factor'
+ gem 'mysql2'
+ gem 'pg'
 end
 
