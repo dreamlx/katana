@@ -28,8 +28,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem "rolify"
 gem 'carrierwave'
-gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+#gem "therubyracer"
+#gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 gem 'devise-bootstrap-views'
 gem 'state_machines-activerecord'
