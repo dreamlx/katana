@@ -39,6 +39,7 @@ gem "haml-rails", "~> 0.9"
 gem 'capistrano-rails', group: :development
 gem 'capistrano-rvm', group: :development
 gem 'capistrano-passenger', '0.0.2', group: :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
