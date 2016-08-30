@@ -27,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'devise-i18n'
-gem "rolify"
 gem 'carrierwave'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
