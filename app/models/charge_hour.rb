@@ -13,15 +13,15 @@ class ChargeHour < ActiveRecord::Base
 	
 	state_machine :state, :initial => :'等待审核' do
     event :confirm! do
-      transition [nil, :'等待审核'] => :'审核通过'
+      transition :'等待审核' => :'审核通过'
     end
 
     event :unconfirm! do
-      transition [nil, :'等待审核'] => :'审核拒绝'
+      transition :'等待审核' => :'审核拒绝'
     end
 
     event :redo! do
-    	transition [nil, :'审核拒绝'] => :'等待审核'
+    	transition :'审核拒绝' => :'等待审核'
   	end
   end
 	

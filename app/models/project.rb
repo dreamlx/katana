@@ -17,11 +17,11 @@ class Project < ActiveRecord::Base
 
   state_machine :state, :initial => :'项目开始' do
     event :closed! do
-      transition [nil, :'项目开始'] => :'项目关闭'
+      transition :'项目开始' => :'项目关闭'
     end
 
     event :redo! do
-    	transition [nil, :'项目关闭'] => :'项目开始'
+    	transition :'项目关闭' => :'项目开始'
   	end
   end
 	
