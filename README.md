@@ -1,3 +1,6 @@
+#问题:
+rolify 和state_machine 冲突
+
 #ToDo
 
 1. database setup: mysql

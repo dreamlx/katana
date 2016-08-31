@@ -11,7 +11,7 @@ class Ability
     can :manage, Period
     can :manage, User
 
-    can :read, Project
+    can [:read, :new, :create], Project
     can :manage, Project, :owner_id => user.id
 
     can [:read, :new, :create], ChargeHour
