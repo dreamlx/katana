@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
-set :application, 'panda2'
+set :application, 'katana'
 set :repo_url, 'git@github.com:dreamlx/panda2.git'
 
 # Default branch is :master

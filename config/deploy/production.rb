@@ -4,9 +4,9 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{deploy@bizapper.com}
-role :web, %w{deploy@bizapper.com}
-role :db,  %w{deploy@bizapper.com}
+role :app, %w{deploy@katana.bizapper.com}
+role :web, %w{deploy@katana.bizapper.com}
+role :db,  %w{deploy@katana.bizapper.com}
 
 set :rvm_ruby_version, '2.3.1@katana'      # Defaults to: 'default'
 # Extended Server Syntax
