@@ -6,6 +6,7 @@ ActiveAdmin.register User do
   scope("superadmin") { |scop| scop.where('role = ?', 'superadmin') }
   scope("project_manager") { |scop| scop.where('role = ?', 'pm') }
   scope("staff") { |scop| scop.where('role = ?', 'staff') }
+  
   index do
     selectable_column
     id_column
@@ -29,7 +30,7 @@ ActiveAdmin.register User do
     f.inputs "Admin Details" do
       f.input :email
       f.input :name
-      f.input :role, as: :select, collection: [['superadmin','superadmin'],['pm','pm'],['stff','stff']]
+      f.input :role, as: :radio, collection: [['superadmin','superadmin'],['pm','pm'],['stff','stff']]
       f.input :charge_rate
       f.input :password
       f.input :password_confirmation
