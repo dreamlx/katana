@@ -8,12 +8,11 @@ menu priority: 2 # so it's on the very left
 # or
 
 	#actions :index, :show, :create, :edit, :update, :destroy
-	scope("is_owner") { |scop| scop.where('owner_id = ?', current_user.id) }
 	sidebar "Project Details", only: [:show, :edit] do
     ul do
     	li link_to 'Booking team', 		admin_project_bookings_path(project) if current_user == project.owner
       if project.bookings.map{|member| member.member_id}.include?(current_user.id)
-      	li link_to "Charge Hours",    admin_project_charge_hours_path(project) 
+      	li link_to "Charge Hours",    admin_project_charge_hours_path(project)
       	li link_to "Expense", 				admin_project_expenses_path(project)
       end
     end
@@ -22,7 +21,7 @@ menu priority: 2 # so it's on the very left
 	index do
 	    selectable_column
 	    id_column
-	    
+
 	    column :title
 	    column :client do |project|
 	      project.client.title if project.client
@@ -38,7 +37,7 @@ menu priority: 2 # so it's on the very left
 	    column :close_date
 
 	    column do |project|
-	    	link_to 'View', admin_project_path(project) 
+	    	link_to 'View', admin_project_path(project)
 	    end
 	end
 
@@ -57,7 +56,7 @@ menu priority: 2 # so it's on the very left
 		    end
 		    row :attachment do |project|
 		    	project.contract.attachment.url if project.contract && project.contract.attachment
-		    end 
+		    end
 		    row :collection_risk
 		    row :start_date
 		    row :close_date
@@ -74,7 +73,7 @@ menu priority: 2 # so it's on the very left
 	form do |f|
 		f. semantic_errors
 		f.inputs :owner, :title, :description
-		
+
 		f.inputs "Contract Information", for: [:contract, f.object.contract || Contract.new] do |s|
       s.input :contract_amount
       s.input :contract_number
@@ -82,11 +81,11 @@ menu priority: 2 # so it's on the very left
 
       s.actions
     end
-		
-		f.inputs "More detail" do 
+
+		f.inputs "More detail" do
 			f.input :client
 			#f.input :job_code, as: :select, :collection => JobCode.all.map{|j| [j.title, j.id]}
-			
+
 			f.input :collection_risk, as: :select, :collection => [['Low','Low'], ['Normal','Normal'],['High','High']]
 			f.input :start_date, as: :datepicker
 			f.input :close_date, as: :datepicker
