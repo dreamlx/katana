@@ -2,7 +2,7 @@
 lock '3.6.1'
 
 set :application, 'katana'
-set :repo_url, 'git@github.com:dreamlx/panda2.git'
+set :repo_url, 'git@github.com:dreamlx/katana.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
